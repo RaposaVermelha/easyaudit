@@ -1,6 +1,5 @@
 package com.easyaudit.easyaudit.resources;
 
-import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,7 @@ public class UserResource {
 	
 	@GetMapping
 	public ResponseEntity<User> findAll() {
-		User u = new User(1L, "Raposo", "123", "raposo@gmail.com", List.of("ADMIN"));
+		User u = new User(1L, "Raposo", "123", "raposo@gmail.com");
 		return ResponseEntity.ok().body(u); // retorna o usuario no body
 	}
 }
