@@ -22,9 +22,10 @@ public class TestConfig implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		
 		User user1 = new User(null, "Raposo", "admin1998", "raposo@gmail.com");
+		User user2 = new User(null, "Chico", "user123", "chico@hotmail.com");
 		
 		//usando repositório para salvar no banco de dados
-		userRepository.saveAll(Arrays.asList(user1));
+		userRepository.saveAll(Arrays.asList(user1, user2));
 		
 	}
 
