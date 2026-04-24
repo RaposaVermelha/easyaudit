@@ -1,11 +1,14 @@
 package com.easyaudit.easyaudit.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +27,12 @@ public class User implements Serializable{
 	
 	//@ElementCollection
 	//private List<String> role;
+	
+	//associação com a classe Ticket
+	@OneToMany(mappedBy = "auditor")
+	private List <Ticket> tickets = new ArrayList<>(); 
+	
+	
 	
 	public User() {
 	}
@@ -67,6 +76,10 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public List <Ticket> getTickets() {
+		return tickets;
+	}
 
 	@Override
 	public int hashCode() {
@@ -84,7 +97,5 @@ public class User implements Serializable{
 		User other = (User) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 
 }
