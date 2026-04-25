@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,6 +32,7 @@ public class User implements Serializable{
 	//private List<String> role;
 	
 	//associação com a classe Ticket
+	@JsonIgnore
 	@OneToMany(mappedBy = "auditor")
 	private List <Ticket> tickets = new ArrayList<>(); 
 	

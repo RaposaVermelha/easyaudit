@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +29,7 @@ public class TypeNonConformities implements Serializable {
 	
 	//associação com a classe Ticket
 	//uma não conformidade pode ser vinculados a vários tickets, e um ticket pode ter mais de uma não conformidade
+	@JsonIgnore
 	@OneToMany(mappedBy = "type")
 	private List <TicketTypeNonConformity> type = new ArrayList<>(); 
 

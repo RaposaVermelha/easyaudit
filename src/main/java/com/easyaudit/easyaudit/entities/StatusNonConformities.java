@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +30,7 @@ public class StatusNonConformities implements Serializable {
 	
 	//associação com a classe Ticket
 	//um status pode ser vinculados a vários tickets, mas, um ticket terá somente um status
+	@JsonIgnore
 	@OneToMany(mappedBy = "status")
 	private List <Ticket> tickets = new ArrayList<>(); 
 	

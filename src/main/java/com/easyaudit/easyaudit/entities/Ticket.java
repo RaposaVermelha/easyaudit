@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -48,10 +50,12 @@ public class Ticket implements Serializable {
 	
 	// tipo de não conformidade aplicada, ex: sem foto do rg, sem fotos da cto no poste, etc;
 	//pode haver mais de um tipo por atendimento, e o usuario vai poder remover e adicionar, vários de uma vez.
+	@JsonIgnore
 	@OneToMany(mappedBy = "ticket")
 	private List<TicketTypeNonConformity> typeLinks = new ArrayList<>();
 	
 	//quem auditou
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User auditor;

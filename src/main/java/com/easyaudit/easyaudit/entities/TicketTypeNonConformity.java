@@ -87,12 +87,12 @@ public class TicketTypeNonConformity implements Serializable {
 		this.auditor = auditor;
 	}
 
-	public Ticket getTickets() {
+	public Ticket getTicket() {
 		return ticket;
 	}
 
-	public void setTickets(Ticket tickets) {
-		this.ticket = tickets;
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
 	}
 
 	public TypeNonConformities getType() {
